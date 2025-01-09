@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Team Search</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    .team-container {
+      max-width: 1200px;
+      margin: 20px auto;
+    }
+    .team-card {
+      text-align: center;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      transition: transform 0.2s;
+    }
+    .team-card:hover {
+      transform: translateY(-5px);
+    }
+    .team-card .card-body {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    .team-card img {
+      width: 100px;
+      height: 100px;
+      object-fit: cover;
+      border-radius: 50%;
+      margin-bottom: 10px;
+    }
+    #searchBar {
+      width: 100%;
+      max-width: 400px;
+      margin: 0 auto 20px auto;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container team-container">
+    <!-- Search Bar -->
+    <input
+      type="text"
+      id="searchBar"
+      class="form-control mb-4"
+      placeholder="Search team members..."
+      onkeyup="filterCards()"
+    >
+
+    <!-- Team Cards -->
+    <div class="row" id="teamCards">
+      <!-- Member 1 -->
+      <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+        <div class="card team-card">
+          <img src="Supplier.png" alt="Sahil Das Gupta">
+          <div class="card-body">
+            <h5 class="card-title">Sahil Das Gupta</h5>
+          </div>
+        </div>
+      </div>
+      <!-- Member 2 -->
+      <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+        <div class="card team-card">
+          <img src="IMG_0036.JPG" alt="Saunak Das">
+          <div class="card-body">
+            <h5 class="card-title">Saunak Das</h5>
+          </div>
+        </div>
+      </div>
+      <!-- Member 3 -->
+      <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+        <div class="card team-card">
+          <img src="team3.png" alt="Supiryo Mitra">
+          <div class="card-body">
+            <h5 class="card-title">Supiryo Mitra</h5>
+          </div>
+        </div>
+      </div>
+      <!-- Member 4 -->
+      <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+        <div class="card team-card">
+          <img src="team4.png" alt="Sayan Bhowal">
+          <div class="card-body">
+            <h5 class="card-title">Sayan Bhowal</h5>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- JavaScript -->
+  <script>
+    function filterCards() {
+      const searchInput = document.getElementById('searchBar').value.toLowerCase();
+      const cards = document.querySelectorAll('#teamCards .col-lg-3, #teamCards .col-md-4, #teamCards .col-sm-6');
+
+      cards.forEach(card => {
+        const name = card.querySelector('.card-title').textContent.toLowerCase();
+        if (name.includes(searchInput)) {
+          card.style.display = 'block';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+  </script>
+</body>
+</html>
