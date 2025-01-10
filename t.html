@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Team</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .team-container {
+            max-width: 1200px;
+            margin: 20px auto;
+        }
+
+        .team-card {
+            text-align: center;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s;
+        }
+
+        .team-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .team-card .card-body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .team-card img {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 50%;
+            margin-bottom: 10px;
+        }
+
+        #searchBar {
+            width: 100%;
+            max-width: 400px;
+            margin: 0 auto 20px auto;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+<body>
+    <header class="bg-dark text-white p-3 d-flex align-items-center justify-content-between">
+        <div class="d-flex align-items-center">
+            <img src="Supplier.png" alt="Gesture Nexus Logo" style="width: 50px; height: 50px;">
+            <h1 class="ms-3 fs-4">Teams</h1>
+        </div>
+    </header>
+    <div class="container team-container">
+        <section class="text-center my-5">
+            <h2 class="fw-bold">ECHO TEAM</h2>
+            <input type="text" id="searchBar" class="form-control mb-4" placeholder="Search team members..."
+                onkeyup="filterCards()">
+            <!-- TAC Section -->
+
+            <div class="container mt-5" id="teamCards">
+                <!-- <a href="team.html"> -->
+                <div class="row g-4 justify-content-center">
+                    <!-- Member 1 -->
+
+                    <a href="teams.html" class="col-lg-3 col-md-4 col-sm-6 mb-4">
+                        <div class="card team-card">
+                            <img src="Supplier.png"  alt="Sahil Das Gupta" >
+                            <div class="card-body">
+                                <h5 class="card-title">Echo</h5>
+
+                            </div>
+                        </div>
+       
+
+                    </a>
+                    <!-- Member 2 -->
+                    <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+                        <div class="card team-card">
+                            <img src="Supplier.png" alt="Saunak Das">
+                            <div class="card-body">
+                                <h5 class="card-title">Saunak Das</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Member 3 -->
+                    <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+                        <div class="card team-card">
+                            <img src="team3.png" alt="Supiryo Mitra">
+                            <div class="card-body">
+                                <h5 class="card-title">Supiryo Mitra</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Member 4 -->
+                    <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+                        <div class="card team-card">
+                            <img src="team4.png" alt="Sayan Bhowal">
+                            <div class="card-body">
+                                <h5 class="card-title">Sayan Bhowal</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- Repeat the same structure for DM, DMM, and Members -->
+        </section>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- JavaScript -->
+    <script>
+        function filterCards() {
+            const searchInput = document.getElementById('searchBar').value.toLowerCase();
+            const cards = document.querySelectorAll('#teamCards .col-lg-3, #teamCards .col-md-4, #teamCards .col-sm-6');
+
+            cards.forEach(card => {
+                const name = card.querySelector('.card-title').textContent.toLowerCase();
+                if (name.includes(searchInput)) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+
+</html>
